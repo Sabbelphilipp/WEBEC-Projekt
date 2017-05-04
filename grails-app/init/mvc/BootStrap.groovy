@@ -22,6 +22,10 @@ class BootStrap {
         new Booking(room: upper, booker: dieter, day: today,    timeSlot: Booking.AM).save(failOnError:true)
         new Booking(room: upper, booker: dieter, day: today,    timeSlot: Booking.PM1).save(failOnError:true)
 
+        Exercise benchpress = new Exercise(name: "Benchpress", reps: 10, weight: 70).save(failOnError:true)
+        Exercise squat = new Exercise(name:"Squat", reps: 10, weight: 120).save(failOnError:true)
+
+        Workout test = new Workout(name: "test", type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
     }
 
     def destroy = {
