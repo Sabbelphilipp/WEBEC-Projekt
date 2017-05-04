@@ -6,10 +6,12 @@ class Exercise{
     double weight
 
     String toString(){
-        return "Name: " + name + "   Repetitions: " + reps + "   Weight: " + weight + " kg"
+        return name
     }
 
     static constraints = {
-
+        name()
+        reps()
+        weight()
     }
 }

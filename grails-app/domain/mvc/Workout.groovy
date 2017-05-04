@@ -1,15 +1,20 @@
 package mvc
 
 class Workout {
-    String name
+    Date date
+    int duration
     String type
     List<Exercise> exerciseList
 
     String toString(){
-        return "Name: " + name + "   Type: " + type + "   ExerciseList"
+        return date.toString()
     }
 
     static constraints = {
-
+        date()
+        type()
+        duration()
+        exerciseList()
     }
+
 }

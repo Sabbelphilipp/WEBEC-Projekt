@@ -1,11 +1,42 @@
 package mvc
 
-class WorkoutController {
 
+class WorkoutController{
     static scaffold = Workout
+
+
+    def test2() {
+        def workout1 = WorkoutTemplate.findWhere(name:"Legs")
+        render text: workout1.type
+    }
+
+    def test3(){
+        def workout1 = WorkoutTemplate.list()
+        //render text : workout1
+        render view:"test", model: [workout1: workout1]
+    }
+
+    def test(){
+        def allWeights = Exercise.list().weight
+        render view:"test", model: [weights : allWeights]
+    }
+
+
 
     def showWorkouts(){
         def allWorkouts = Workout.list()
         render text: allWorkouts
     }
+
+    def showExercises(){
+        def allExercises = Exercise.list()
+        render text: allExercises
+    }
+
+    def showWorkoutTemplates(){
+        def allWorkoutTemplates = WorkoutTemplate.list()
+        render text: allWorkoutTemplates
+    }
+
+
 }

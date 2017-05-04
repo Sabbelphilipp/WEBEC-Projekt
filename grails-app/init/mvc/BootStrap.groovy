@@ -24,8 +24,15 @@ class BootStrap {
 
         Exercise benchpress = new Exercise(name: "Benchpress", reps: 10, weight: 70).save(failOnError:true)
         Exercise squat = new Exercise(name:"Squat", reps: 10, weight: 120).save(failOnError:true)
+        Exercise overheadSquat = new Exercise(name:"Overhead Squat", reps: 10, weight: 60).save(failOnError:true)
+        Exercise snatch = new Exercise(name:"Snatch", reps: 10, weight: 120).save(failOnError:true)
+        Exercise clean = new Exercise(name:"Clean", reps: 10, weight: 120).save(failOnError:true)
+        Exercise bizepsCurl = new Exercise(name:"Bizeps Curl", reps: 10, weight: 120).save(failOnError:true)
 
-        Workout test = new Workout(name: "test", type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
+
+        WorkoutTemplate legs = new WorkoutTemplate(name: "Legs", type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
+        WorkoutTemplate chest = new WorkoutTemplate(name: "Chest", type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
+        WorkoutTemplate cardio = new WorkoutTemplate(name: "Cardio", type: "Endurance", exerciseList: [benchpress,squat]).save(failOnError:true)
     }
 
     def destroy = {
