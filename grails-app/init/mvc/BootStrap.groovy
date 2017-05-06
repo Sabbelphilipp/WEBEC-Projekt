@@ -33,6 +33,13 @@ class BootStrap {
         WorkoutTemplate legs = new WorkoutTemplate(name: "Legs", type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
         WorkoutTemplate chest = new WorkoutTemplate(name: "Chest", type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
         WorkoutTemplate cardio = new WorkoutTemplate(name: "Cardio", type: "Endurance", exerciseList: [benchpress,squat]).save(failOnError:true)
+
+        new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-05-02 11:00:00"), duration: 120, type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
+        new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-04-12 11:00:00"), duration: 120, type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
+        new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-03-02 11:00:00"), duration: 120, type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
+        new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-04-14 11:00:00"), duration: 120, type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
+        new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-05-04 11:00:00"), duration: 120, type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
+
     }
 
     def destroy = {

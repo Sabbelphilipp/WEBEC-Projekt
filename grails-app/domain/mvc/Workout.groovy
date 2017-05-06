@@ -7,7 +7,7 @@ class Workout {
     List<Exercise> exerciseList
 
     String toString(){
-        return date.toString()
+        return  date.dateString
     }
 
     static constraints = {
