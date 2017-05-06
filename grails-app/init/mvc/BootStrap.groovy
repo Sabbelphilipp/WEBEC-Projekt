@@ -35,10 +35,10 @@ class BootStrap {
         WorkoutTemplate cardio = new WorkoutTemplate(name: "Cardio", type: "Endurance", exerciseList: [benchpress,squat]).save(failOnError:true)
 
         new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-05-02 11:00:00"), duration: 120, type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
-        new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-04-12 11:00:00"), duration: 120, type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
-        new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-03-02 11:00:00"), duration: 120, type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
-        new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-04-14 11:00:00"), duration: 120, type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
-        new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-05-04 11:00:00"), duration: 120, type: "Strength", exerciseList: [benchpress,squat]).save(failOnError:true)
+        new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-04-12 11:00:00"), duration: 120, type: "Strength", exerciseList: [clean,squat]).save(failOnError:true)
+        new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-03-02 11:00:00"), duration: 120, type: "Strength", exerciseList: [snatch,bizepsCurl]).save(failOnError:true)
+        new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-04-14 11:00:00"), duration: 120, type: "Strength", exerciseList: [overheadSquat,squat]).save(failOnError:true)
+        new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-05-04 11:00:00"), duration: 120, type: "Strength", exerciseList: [benchpress,bizepsCurl]).save(failOnError:true)
 
     }
 

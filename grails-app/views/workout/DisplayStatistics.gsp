@@ -19,9 +19,13 @@
     /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
     #main {margin-left: 120px}
 
-    li a{
-        display: block;
-        text-decoration: none;
+    .highcharts-background {
+        fill: #999999;
+    }
+    .highcharts-title {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
     }
 
     </style>
@@ -49,40 +53,66 @@
 <!-- Main part -->
 <div class="w3-padding-large" id="main">
 
-
     <header class="w3-container w3-padding-32 w3-center w3-black" id="header">
-        <img src="${resource(dir:'images', file:'header7.png')}" style="width:100%">
-
-        <h1 class="w3-xxxlarge">My Workouts</h1>
+        <h1 class="w3-jumbo">My Statistics</h1>
     </header>
 
-    <!---------------------- Section MyWorkouts ----------------------------->
-    <div id="myWorkouts">
+    <!---------------------- Section MyStatistics ----------------------------->
 
-        <ul class="w3-ul w3-card-4 w3-content">
-            <g:each var="name" in="${allWorkouts}">
-                <li class="w3-padding-16 w3-hover-dark-grey">
-                    <a href="test">
-                        <img src="${resource(dir:'images', file:'squat.jpg')}" class="w3-left w3-round w3-grayscale w3-margin-right" style="width:70px">
-                        <span class="w3-large">${name}</span><br>
-                        <span>Type: ${name.type}</span><br>
-                        <span>Duration: ${name.duration} </span>
-                    </a>
-                </li>
-            </g:each>
-        </ul>
+    <div class="w3-content" id="myStatistics">
+
+
+        <div class="w3-cell-row" style="width:100%">
+            <div class="w3-container w3-cell">
+                <p id="container1"> </p>
+            </div>
+        </div>
 
 
     </div>
 
-    - neues workout hinzufügen
-
-
-
 
 </div>
 
+<script>
+    Highcharts.setOptions({
+        colors: ['#ff3300','#ff4dd2','#3385ff','#00e64d','#ffff4d','#bf80ff']
+    });
 
+    Highcharts.chart('container1', {
+        title: {
+            text: 'Weight Progress'
+        },
+        yAxis: {
+            title: {
+                text: 'kg'
+            },
+            min: 0,
+            max: 150
+        },
+        legend: {
+            enabled: true
+        },
+        plotOptions: {
+            series: {
+                pointStart: 1
+            }
+        },
+        series: [{
+                type: 'line',
+                name: 'Squat',
+                data: ${squatWeights}
+            },{
+                type: 'line',
+                name: 'Bizeps',
+                data: ${bizepCurlsWeights}
+            },{
+                type: 'line',
+                name: 'Benchpress',
+                data: ${benchpressWeights}
+        }]
+    });
+</script>
 
 </body>
 </html>
