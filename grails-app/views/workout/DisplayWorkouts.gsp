@@ -59,30 +59,38 @@
     <!---------------------- Section MyWorkouts ----------------------------->
     <div id="myWorkouts">
 
+        <!--Nav Bar -->
+
+        <div class="w3-bar w3-black w3-xlarge">
+            <a href="addNewWorkout" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"><i class="fa fa-plus"> Add new Workout</i></a>
+
+        </div>
+
+        <p> </p>
+
         <ul class="w3-ul w3-card-4 w3-content">
             <g:each var="name" in="${allWorkouts}">
-                <li class="w3-padding-16 w3-hover-dark-grey">
+                <li class="w3-padding-14 w3-hover-dark-grey">
                     <a href="test">
                         <img src="${resource(dir:'images', file:'squat.jpg')}" class="w3-left w3-round w3-grayscale w3-margin-right" style="width:70px">
-                        <span class="w3-large">${name}</span><br>
+                        <span class="w3-large">${name}</span>
                         <span>Type: ${name.type}</span><br>
-                        <span>Duration: ${name.duration} </span>
+                        <span>Duration: ${name.duration} </span><br>
+                        <span>Exercises:
+                        <g:each var="exercise" in="${name.exerciseList}">
+                            <!-- TODO: Bilder einfügen der Übungen -> einfach Namen im File eintragen -->
+                            <span>${exercise} ,</span>
+                        </g:each>
+                        </span>
+                    </span>
                     </a>
                 </li>
             </g:each>
         </ul>
 
-
     </div>
-
-    - neues workout hinzufügen
-
-
 
 
 </div>
-
-
-
 </body>
 </html>
