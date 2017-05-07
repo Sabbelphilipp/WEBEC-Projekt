@@ -19,13 +19,24 @@
     /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
     #main {margin-left: 120px}
 
+    .highcharts-root{
+        color: #4cae4c;
+        font-size: 40px;
+    }
+
     .highcharts-background {
-        fill: #999999;
+        fill: #000000;
     }
     .highcharts-title {
         font-size: 16px;
         font-weight: bold;
         font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+        color: #ffffff;
+    }
+    .highcharts-axis{
+        color: white;
+        font-size: 12px;
+        text-decoration: underline;
     }
 
     </style>
@@ -67,7 +78,11 @@
                 <p id="container1"> </p>
             </div>
         </div>
-
+        <div class="w3-cell-row" style="width:100%">
+            <div class="w3-container w3-cell">
+                <p id="container2"> </p>
+            </div>
+        </div>
 
     </div>
 
@@ -81,7 +96,10 @@
 
     Highcharts.chart('container1', {
         title: {
-            text: 'Weight Progress'
+            text: 'Weight Progress',
+            style: {
+                color: "#ffffff"
+            }
         },
         yAxis: {
             title: {
@@ -91,7 +109,8 @@
             max: 150
         },
         legend: {
-            enabled: true
+            enabled: true,
+            backgroundColor: '#ffffff'
         },
         plotOptions: {
             series: {
@@ -110,6 +129,49 @@
                 type: 'line',
                 name: 'Benchpress',
                 data: ${benchpressWeights}
+        }]
+    });
+
+    Highcharts.chart('container2', {
+        chart: {
+
+        },
+        title: {
+            text: 'Übungs<br>Verteilung',
+            align: 'center',
+            style: {
+                color: "#ffffff"
+            },
+            verticalAlign: 'middle',
+            y: 40
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: true,
+                    distance: -50,
+                    style: {
+                        fontWeight: 'bold',
+                        color: 'white'
+                    }
+                },
+                startAngle: -90,
+                endAngle: 90,
+                center: ['50%', '75%']
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Type Share',
+            innerSize: '50%',
+            data: [
+                ['Strength',   ${nrOfStrength}],
+                ['Explosiveness', ${nrOfExplosiveness}],
+                ['Endurance', ${nrOfEndurance}],
+            ]
         }]
     });
 </script>

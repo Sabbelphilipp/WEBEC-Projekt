@@ -61,7 +61,7 @@
 
         <!--Nav Bar -->
 
-        <div class="w3-bar w3-black w3-xlarge">
+        <div class="w3-bar w3-black w3-large">
             <a href="addNewWorkout" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"><i class="fa fa-plus"> Add new Workout</i></a>
 
         </div>

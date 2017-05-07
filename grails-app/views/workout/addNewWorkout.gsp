@@ -52,7 +52,7 @@
 
     <div class="w3-content w3-padding" id="addNewWorkout">
 
-        <p><label>Date</label>
+        <p><label>Date (dd.mm.yyyy)</label>
             <input class="w3-input w3-border" type="date" name="date">
 
 
@@ -66,9 +66,9 @@
 
 
 
-        <ul class="w3-ul w3-card-4 w3-content">
+        <ul class="w3-ul w3-card-4 w3-content" id="exerciseList">
 
-            <li class="w3-padding-16 w3-container w3-row">
+            <li class="w3-padding-16 w3-container w3-row" id="firstLi">
 
                 <div class="w3-col w3-padding-small" style="width:50%">
                     <p>
@@ -91,26 +91,67 @@
                 </div>
                 <div class="w3-col w3-padding-small" style="width:10%">
                     <p>
-                    <label> ds</label>
-                    <button onclick="this.parentElement.parentElement.style.display='none'" class="w3-col w3-button w3-white ">x</button></p>
+                    <label style="visibility:hidden"> test  </label>
+                    <button onclick="this.parentElement.parentElement.parentElement.style.display='none'" class="w3-col w3-button w3-white ">x</button></p>
                 </div>
             </li>
+            <li class="w3-padding-16 w3-container w3-row">
+
+                <div class="w3-col w3-padding-small" style="width:50%">
+                    <p>
+                        <label>Exercise</label>
+                        <select class="w3-select" name="option">
+                            <option value="" disabled selected>Choose your option</option>
+                            <g:each var="exercise" in="${allExercises}">
+                                <option value=${exercise}>${exercise}</option>
+                            </g:each>
+                        </select>
+
+                    </p>
+                </div>
+                <div class="w3-col w3-padding-small" style="width:20%"><p>
+                    <label>Weight</label>
+                    <input class="w3-input w3-border" type="text"></p>
+                </div>
+                <div class="w3-col w3-padding-small" style="width:20%"><p>
+                    <label>Repetitions</label>
+                    <input class="w3-input w3-border" type="text"></p>
+                </div>
+                <div class="w3-col w3-padding-small" style="width:10%">
+                    <p>
+                        <label style="visibility:hidden"> test  </label>
+                        <button onclick="this.parentElement.parentElement.parentElement.style.display='none'" class="w3-col w3-button w3-white ">x</button></p>
+                </div>
+            </li>
+
         </ul>
 
 
             <p></p>
 
             <div>
-
-                <a href="#" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"> Add Exercise</a>
-                <a href="#" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"> Load Template</a>
-                <a href="#" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"> Safe Workout</a>
-
+                <!-- TODO Save Workout -->
+                <a href="displayWorkouts" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"> Save Workout</a>
+                <a class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black" onclick="addItem()"> Add Exercise</a>
+                <a href="testLink" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"> Load Template</a>
             </div>
 
             <p></p>
     </div>
 </div>
+
+<script>
+
+    function addItem(){
+        var li = document.createElement("LI");
+        var li2 = document.getElementById("firstLi")
+        li.className = "w3-padding-16 w3-container w3-row"
+        li.innerHTML = li2.innerHTML
+        document.getElementById("exerciseList").appendChild(li);
+    }
+
+
+</script>
 
 </body>
 </html>

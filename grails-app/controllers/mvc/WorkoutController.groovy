@@ -17,13 +17,17 @@ class WorkoutController{
     def displayStatistics(){
         def allWeights = Workout.list().exerciseList.weight
         //def squatWeights = Workout.list().findAllWhere(name:"squat")
+        def nrOfStrength = Workout.countByType("Strength")
+        def nrOfEndurance = Workout.countByType("Endurance")
+        def nrOfExplosiveness = Workout.countByType("Explosiveness")
 
         def dummyData1 = [20,30,40,50,60]
         def dummyData2 = [25,23,25,32,21,32,12]
         def dummyData3 = [123,121,111,119]
 
         //render text: allWeights
-        render view:"DisplayStatistics", model:[squatWeights: dummyData1, benchpressWeights: dummyData2, bizepCurlsWeights: dummyData3]
+        render view:"DisplayStatistics", model:[squatWeights: dummyData1, benchpressWeights: dummyData2, bizepCurlsWeights: dummyData3,
+                                                nrOfStrength:nrOfStrength, nrOfEndurance:nrOfEndurance, nrOfExplosiveness:nrOfExplosiveness]
     }
 
     def displayTemplates(){
@@ -34,6 +38,10 @@ class WorkoutController{
     def test(){
         def allWeights = Exercise.list().weight
         render view:"test", model: [weights : allWeights]
+    }
+
+    def testLink(){
+        render text: "Testpage"
     }
 
 }
