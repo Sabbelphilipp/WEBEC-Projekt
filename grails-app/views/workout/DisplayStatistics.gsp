@@ -78,14 +78,17 @@
                 <p id="container1"> </p>
             </div>
         </div>
-        <div class="w3-cell-row" style="width:100%">
-            <div class="w3-container w3-cell">
+        <div class="w3-cell-row"style="width: 100%">
+            <div class="w3-container w3-half w3-cell">
                 <p id="container2"> </p>
             </div>
+            <div class="w3-container w3-half w3-cell">
+                <p id="container3"> </p>
+            </div>
         </div>
-
     </div>
 
+    ${test}
 
 </div>
 
@@ -137,7 +140,50 @@
 
         },
         title: {
-            text: 'Übungs<br>Verteilung',
+            text: 'Übungstyp<br>Verteilung',
+            align: 'center',
+            style: {
+                color: "#ffffff"
+            },
+            verticalAlign: 'middle',
+            y: 40
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: true,
+                    distance: -50,
+                    style: {
+                        fontWeight: 'bold',
+                        color: 'white'
+                    }
+                },
+                startAngle: -90,
+                endAngle: 90,
+                center: ['50%', '75%']
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Type Share',
+            innerSize: '50%',
+            data: [
+                ['Strength',   ${nrOfStrength}],
+                ['Explosiveness', ${nrOfExplosiveness}],
+                ['Endurance', ${nrOfEndurance}],
+            ]
+        }]
+    });
+
+    Highcharts.chart('container3', {
+        chart: {
+
+        },
+        title: {
+            text: 'Übungs-<br>verteilung',
             align: 'center',
             style: {
                 color: "#ffffff"

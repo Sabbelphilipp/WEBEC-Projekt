@@ -53,15 +53,15 @@
     <div class="w3-content w3-padding" id="addNewWorkout">
 
         <p><label>Date (dd.mm.yyyy)</label>
-            <input class="w3-input w3-border" type="date" name="date">
+            <input class="w3-input w3-border" type="date" name="date" id ="date">
 
 
         <p><label>Type:</label>
-            <input class="w3-input w3-border" name="type" type="text"></p>
+            <input class="w3-input w3-border" name="type" type="text" id="type"></p>
 
 
         <p><label>Duration:</label>
-            <input class="w3-input w3-border" name="duration" type="text"></p>
+            <input class="w3-input w3-border" name="duration" type="text" id="duration"></p>
 
 
 
@@ -73,8 +73,8 @@
                 <div class="w3-col w3-padding-small" style="width:50%">
                     <p>
                     <label>Exercise</label>
-                    <select class="w3-select" name="option">
-                        <option value="" disabled selected>Choose your option</option>
+                    <select class="w3-select" name="Exercises" id="selectBox">
+                        <option value="" disabled selected>Choose your Exercise</option>
                         <g:each var="exercise" in="${allExercises}">
                             <option value=${exercise}>${exercise}</option>
                         </g:each>
@@ -95,34 +95,6 @@
                     <button onclick="this.parentElement.parentElement.parentElement.style.display='none'" class="w3-col w3-button w3-white ">x</button></p>
                 </div>
             </li>
-            <li class="w3-padding-16 w3-container w3-row">
-
-                <div class="w3-col w3-padding-small" style="width:50%">
-                    <p>
-                        <label>Exercise</label>
-                        <select class="w3-select" name="option">
-                            <option value="" disabled selected>Choose your option</option>
-                            <g:each var="exercise" in="${allExercises}">
-                                <option value=${exercise}>${exercise}</option>
-                            </g:each>
-                        </select>
-
-                    </p>
-                </div>
-                <div class="w3-col w3-padding-small" style="width:20%"><p>
-                    <label>Weight</label>
-                    <input class="w3-input w3-border" type="text"></p>
-                </div>
-                <div class="w3-col w3-padding-small" style="width:20%"><p>
-                    <label>Repetitions</label>
-                    <input class="w3-input w3-border" type="text"></p>
-                </div>
-                <div class="w3-col w3-padding-small" style="width:10%">
-                    <p>
-                        <label style="visibility:hidden"> test  </label>
-                        <button onclick="this.parentElement.parentElement.parentElement.style.display='none'" class="w3-col w3-button w3-white ">x</button></p>
-                </div>
-            </li>
 
         </ul>
 
@@ -131,9 +103,9 @@
 
             <div>
                 <!-- TODO Save Workout -->
-                <a href="displayWorkouts" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"> Save Workout</a>
+                <a class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black" onclick="saveItem()"> Save Workout</a>
                 <a class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black" onclick="addItem()"> Add Exercise</a>
-                <a href="testLink" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"> Load Template</a>
+                <a href="testLink?test=blabla" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"> Load Template</a>
             </div>
 
             <p></p>
@@ -150,6 +122,20 @@
         document.getElementById("exerciseList").appendChild(li);
     }
 
+    function saveItem(){
+        var ul = document.getElementById("exerciseList");
+        var items = ul.getElementsByTagName("li");
+        for (var i = 0; i < items.length; ++i) {
+
+        }
+
+        var date = document.getElementById('date').value
+        var duration = document.getElementById("duration").value
+        var type = document.getElementById("type").value
+        var myLink = new String("saveWorkout?duration=" + duration +"&type=" + type)
+        window.location.href = myLink
+t
+    }
 
 </script>
 
