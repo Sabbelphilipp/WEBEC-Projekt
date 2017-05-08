@@ -9,11 +9,15 @@ class WorkoutController{
         render view:"addNewWorkout", model:[allExercises:allExercises]
     }
 
-    def saveWorkout(int duration, String type){
+    def saveWorkout(String date, int duration, String type){
         Exercise benchpress = new Exercise(name: "Benchpress", reps: 10, weight: 70).save(failOnError:true)
         Exercise squat = new Exercise(name:"Squat", reps: 10, weight: 120).save(failOnError:true)
-        new Workout(date: Date.parse("yyyy-MM-dd hh:mm:ss", "2017-05-09 11:00:00"), duration: duration, type: type, exerciseList: [benchpress,squat]).save(failOnError:true)
-        render text: "Testpage"
+        new Workout(date: Date.parse("dd-MM-yyyy", date), duration: duration, type: type, exerciseList: [benchpress,squat]).save(failOnError:true)
+        render text: "Erfolgreich gespeichert"
+    }
+
+    def addExercise(){
+
     }
 
     def displayWorkouts(){

@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
     <style>
     body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
@@ -53,7 +55,7 @@
     <div class="w3-content w3-padding" id="addNewWorkout">
 
         <p><label>Date (dd.mm.yyyy)</label>
-            <input class="w3-input w3-border" type="date" name="date" id ="date">
+            <input class="w3-input w3-border" type="date" name="date" id ="datepicker">
 
 
         <p><label>Type:</label>
@@ -123,20 +125,28 @@
     }
 
     function saveItem(){
+        //Create new Workout
+        var date = document.getElementById('datepicker').value
+        var duration = document.getElementById("duration").value
+        var type = document.getElementById("type").value
+        var myLink = new String("saveWorkout?date=" + date + "&duration=" + duration +"&type=" + type)
+        window.location.href = myLink
+
+        //Add Exercises to Workout
         var ul = document.getElementById("exerciseList");
         var items = ul.getElementsByTagName("li");
         for (var i = 0; i < items.length; ++i) {
-
+            //Todo: Add exercise für jede übung in LI
         }
 
-        var date = document.getElementById('date').value
-        var duration = document.getElementById("duration").value
-        var type = document.getElementById("type").value
-        var myLink = new String("saveWorkout?duration=" + duration +"&type=" + type)
-        window.location.href = myLink
-t
+
     }
 
+    $(document).ready(function() {
+        $("#datepicker").datepicker({
+            dateFormat: 'dd-mm-yy'
+        });
+    });
 </script>
 
 </body>
