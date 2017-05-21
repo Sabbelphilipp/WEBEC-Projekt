@@ -9,13 +9,6 @@ class WorkoutTemplate {
         return name
     }
 
-    String getType(){
-        return type
-    }
-
-    List<Exercise> getExercises(){
-        return exerciseList
-    }
 
     static constraints = {
         name()

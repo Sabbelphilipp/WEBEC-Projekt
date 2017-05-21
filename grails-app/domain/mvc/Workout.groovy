@@ -10,6 +10,7 @@ class Workout {
         return  date.dateString
     }
 
+    //TODO: Können hier Methoden hinzugefügt werden?
 
     static constraints = {
         date()

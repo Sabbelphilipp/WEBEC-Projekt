@@ -17,7 +17,22 @@ class WorkoutController{
     }
 
     def addExercise(){
+        Exercise bizeps = new Exercise(name:"Bizeps Curl", reps: 923, weight: 23).save(failOnError:true)
+        //def myWorkout = Workout.findWhere(duration:120).exerciseList.addExercise(bizeps)
+        //Workout.findWhere(duration:120).exerciseList.add(bizeps) -> Works
+        def temp = Workout.findWhere(duration:120).exerciseList
+        def newList = temp + [bizeps]
 
+        Workout.findWhere(duration:120).exerciseList = newList
+        Workout.findWhere(duration:120).save(failOnError: true)
+        def bla = Workout.list().exerciseList
+        //TODO: Why the Data is only available in addExercise? -> Test3 fails...
+        render text : bla
+    }
+
+    def test3(){
+        def blabla = Workout.list().exerciseList
+        render text : blabla
     }
 
     def displayWorkouts(){
@@ -34,7 +49,7 @@ class WorkoutController{
 
         //def nrOfBenchpress = Workout.list().exerciseList.countByType("[Clean, Squat]")
         def test = Workout.list().exerciseList
-
+        //Todo: Zählen der einzelnen Übungen -> iterieren über die ganzen Listen und CountBY ausführen
         def dummyData1 = [20,30,40,50,60]
         def dummyData2 = [25,23,25,32,21,32,12]
         def dummyData3 = [123,121,111,119]

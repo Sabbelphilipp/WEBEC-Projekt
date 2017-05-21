@@ -108,6 +108,8 @@
                 <a class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black" onclick="saveItem()"> Save Workout</a>
                 <a class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black" onclick="addItem()"> Add Exercise</a>
                 <a href="testLink?test=blabla" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"> Load Template</a>
+                <a href="addExercise" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"> TestButton</a>
+
             </div>
 
             <p></p>
@@ -137,6 +139,7 @@
         var items = ul.getElementsByTagName("li");
         for (var i = 0; i < items.length; ++i) {
             //Todo: Add exercise für jede übung in LI
+            //li.box.value = name, li.box.weight = weight usw.
         }
 
 
