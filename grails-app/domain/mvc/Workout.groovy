@@ -10,6 +10,10 @@ class Workout {
         return  date.dateString
     }
 
+    def someMethod(Exercise ) {
+        return "Hello."
+    }
+
     //TODO: Können hier Methoden hinzugefügt werden?
 
     static constraints = {

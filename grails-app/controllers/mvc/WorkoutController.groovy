@@ -10,10 +10,13 @@ class WorkoutController{
     }
 
     def saveWorkout(String date, int duration, String type){
+        //Todo: Replace this exercises with the Exercises from the List
         Exercise benchpress = new Exercise(name: "Benchpress", reps: 10, weight: 70).save(failOnError:true)
         Exercise squat = new Exercise(name:"Squat", reps: 10, weight: 120).save(failOnError:true)
-        new Workout(date: Date.parse("dd-MM-yyyy", date), duration: duration, type: type, exerciseList: [benchpress,squat]).save(failOnError:true)
-        render text: "Erfolgreich gespeichert"
+        def myDate = date
+        new Workout(date: Date.parse("yyyy-MM-dd", myDate), duration: duration, type: type, exerciseList: [benchpress,squat]).save(failOnError:true)
+        def allWorkouts = Workout.listOrderByDate(max: 10, order: "desc")
+        render view:"DisplayWorkouts", model:[allWorkouts: allWorkouts]
     }
 
     def addExercise(){
@@ -59,19 +62,15 @@ class WorkoutController{
                                                 nrOfStrength:nrOfStrength, nrOfEndurance:nrOfEndurance, nrOfExplosiveness:nrOfExplosiveness, test:test]
     }
 
+    def displayExercises(String date, String duration){
+        def myDate = Date.parse("yyyy-MM-dd", date)
+        def myWorkout = Workout.findWhere(date: myDate)
+        render view: "DisplayExercises", model:[myWorkout: myWorkout]
+    }
+
     def displayTemplates(){
         def text = "display Templates"
         render view: "DisplayTemplates", model:[text:text]
-    }
-
-    def test(){
-        def allWeights = Exercise.list().weight
-        render view:"test", model: [weights : allWeights]
-    }
-
-    def testLink(String test){
-
-        render text: test
     }
 
 }

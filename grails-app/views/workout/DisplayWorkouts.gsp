@@ -71,22 +71,28 @@
         <ul class="w3-ul w3-card-4 w3-content">
             <g:each var="name" in="${allWorkouts}">
                 <li class="w3-padding-14 w3-hover-dark-grey">
-                    <a href="test">
-                        <img src="${resource(dir:'images', file:'squat.jpg')}" class="w3-left w3-round w3-grayscale w3-margin-right" style="width:70px">
-                        <span class="w3-large">${name}</span>
-                        <span>Type: ${name.type}</span><br>
-                        <span>Duration: ${name.duration} </span><br>
-                        <span>Exercises:
-                        <g:each var="exercise" in="${name.exerciseList}">
-                            <!-- TODO: Bilder einfügen der Übungen -> einfach Namen im File eintragen -->
-                            <span>${exercise} ,</span>
-                        </g:each>
-                        </span>
-                    </span>
+                    <a href="displayExercises?date=${name.date}&duration=${name.duration}">
+                        <img src="${resource(dir:'images', file:"${name.type}.jpg")}" class="w3-left w3-round w3-grayscale w3-margin-right w3-padding-32" style="width:70px">
+                        <div class="w3-container w3-cell" style="width:200px">
+                            <p><b>${name}</b></p>
+                            <p>Type: ${name.type}</p>
+                            <p>Duration: ${name.duration}</p>
+                        </div>
+                        <div class="w3-container  w3-cell">
+                            <p> Exercise List:
+                            <g:each var="exercise" in="${name.exerciseList}">
+                                <div class="w3-col w3-padding-small" style="width:80px">
+                                    <img src="${resource(dir:'images', file:"${exercise.name}.jpg")}" class="w3-left w3-round w3-grayscale" style="height:50px">
+                                </div>
+                            </g:each>
+
+                            </p>
+                        </div>
                     </a>
                 </li>
             </g:each>
         </ul>
+
 
 
 

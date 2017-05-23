@@ -54,7 +54,7 @@
 
     <div class="w3-content w3-padding" id="addNewWorkout">
 
-        <p><label>Date (dd.mm.yyyy)</label>
+        <p><label>Date</label>
             <input class="w3-input w3-border" type="date" name="date" id ="datepicker">
 
 
@@ -85,11 +85,11 @@
                 </div>
                 <div class="w3-col w3-padding-small" style="width:20%"><p>
                     <label>Weight</label>
-                    <input class="w3-input w3-border" type="text"></p>
+                    <input class="w3-input w3-border" type="text" id="weightBox"></p>
                 </div>
                 <div class="w3-col w3-padding-small" style="width:20%"><p>
                     <label>Repetitions</label>
-                    <input class="w3-input w3-border" type="text"></p>
+                    <input class="w3-input w3-border" type="text" id="repetitionBox"></p>
                 </div>
                 <div class="w3-col w3-padding-small" style="width:10%">
                     <p>
@@ -132,22 +132,29 @@
         var duration = document.getElementById("duration").value
         var type = document.getElementById("type").value
         var myLink = new String("saveWorkout?date=" + date + "&duration=" + duration +"&type=" + type)
-        window.location.href = myLink
+
 
         //Add Exercises to Workout
         var ul = document.getElementById("exerciseList");
         var items = ul.getElementsByTagName("li");
         for (var i = 0; i < items.length; ++i) {
+            //Welchen Ansatz verfolgen beim Hinzufügen von Items zu LI (bezgl. ID)
+            //Wie bekomme ich die Daten da raus?
+            //var test = document.getElementById("weightBox").value
+            //alert("Output" + test);
             //Todo: Add exercise für jede übung in LI
             //li.box.value = name, li.box.weight = weight usw.
         }
 
+        //Save Workout
+        window.location.href = myLink
 
     }
 
     $(document).ready(function() {
         $("#datepicker").datepicker({
-            dateFormat: 'dd-mm-yy'
+            //dateFormat: 'dd-mm-yy'
+            dateFormat: 'yy-mm-dd'
         });
     });
 </script>
