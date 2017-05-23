@@ -23,8 +23,8 @@
         display: block;
         text-decoration: none;
     }
-
     </style>
+
 </head>
 
 <body class="w3-black">
@@ -40,10 +40,11 @@
         <!--area-chart, line-chart-->
         <p>My Statistics</p>
     </a>
+    <!--
     <a href="displayTemplates" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
         <i class="fa fa-copy w3-xxlarge"></i>
         <p>My Templates</p>
-    </a>
+    </a>-->
 </nav>
 
 <!-- Main part -->
@@ -63,11 +64,8 @@
 
         <div class="w3-bar w3-black w3-large">
             <a href="addNewWorkout" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"><i class="fa fa-plus"> Add new Workout</i></a>
-
         </div>
-
         <p> </p>
-
         <ul class="w3-ul w3-card-4 w3-content">
             <g:each var="name" in="${allWorkouts}">
                 <li class="w3-padding-14 w3-hover-dark-grey">
@@ -85,20 +83,13 @@
                                     <img src="${resource(dir:'images', file:"${exercise.name}.jpg")}" class="w3-left w3-round w3-grayscale" style="height:50px">
                                 </div>
                             </g:each>
-
                             </p>
                         </div>
                     </a>
                 </li>
             </g:each>
         </ul>
-
-
-
-
     </div>
-
-
 </div>
 </body>
 </html>

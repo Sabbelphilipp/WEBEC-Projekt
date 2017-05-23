@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
@@ -19,7 +20,6 @@
     .w3-sidebar {width: 120px;background: #222;}
     /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
     #main {margin-left: 120px}
-
 
     </style>
 </head>
@@ -37,10 +37,11 @@
         <!--area-chart, line-chart-->
         <p>My Statistics</p>
     </a>
+    <!--
     <a href="displayTemplates" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
         <i class="fa fa-copy w3-xxlarge"></i>
         <p>My Templates</p>
-    </a>
+    </a>-->
 </nav>
 
 <!-- Main part -->
@@ -50,28 +51,22 @@
         <h1 class="w3-xxLarge">Add new Workout</h1>
     </header>
 
-    <!---------------------- Section AddNewWorkout ----------------------------->
 
     <div class="w3-content w3-padding" id="addNewWorkout">
-
+        <form action="javascript:saveItem()">
         <p><label>Date</label>
-            <input class="w3-input w3-border" type="date" name="date" id ="datepicker">
+            <input class="w3-input w3-border" type="date" name="date" id ="datepicker" required>
 
 
         <p><label>Type:</label>
-            <input class="w3-input w3-border" name="type" type="text" id="type"></p>
+            <input class="w3-input w3-border" name="type" type="text" id="type" required></p>
 
 
         <p><label>Duration:</label>
-            <input class="w3-input w3-border" name="duration" type="text" id="duration"></p>
-
-
-
+            <input class="w3-input w3-border" name="duration" type="text" id="duration" required></p>
 
         <ul class="w3-ul w3-card-4 w3-content" id="exerciseList">
-
             <li class="w3-padding-16 w3-container w3-row" id="firstLi">
-
                 <div class="w3-col w3-padding-small" style="width:50%">
                     <p>
                     <label>Exercise</label>
@@ -97,22 +92,18 @@
                     <button onclick="this.parentElement.parentElement.parentElement.style.display='none'" class="w3-col w3-button w3-white ">x</button></p>
                 </div>
             </li>
-
         </ul>
 
 
-            <p></p>
 
+            <p></p>
             <div>
-                <!-- TODO Save Workout -->
-                <a class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black" onclick="saveItem()"> Save Workout</a>
+                <input class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black" type="submit" value="Save Workout">
                 <a class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black" onclick="addItem()"> Add Exercise</a>
-                <a href="testLink?test=blabla" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"> Load Template</a>
-                <a href="addExercise" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"> TestButton</a>
-
+                <!--<a href="testLink?test=blabla" class="w3-bar-item w3-button w3-white w3-padding-large w3-hover-black"> Load Template</a>-->
             </div>
-
             <p></p>
+        </form>
     </div>
 </div>
 
@@ -133,7 +124,6 @@
         var type = document.getElementById("type").value
         var myLink = new String("saveWorkout?date=" + date + "&duration=" + duration +"&type=" + type)
 
-
         //Add Exercises to Workout
         var ul = document.getElementById("exerciseList");
         var items = ul.getElementsByTagName("li");
@@ -148,7 +138,6 @@
 
         //Save Workout
         window.location.href = myLink
-
     }
 
     $(document).ready(function() {

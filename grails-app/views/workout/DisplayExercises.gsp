@@ -34,10 +34,11 @@
         <!--area-chart, line-chart-->
         <p>My Statistics</p>
     </a>
+    <!--
     <a href="displayTemplates" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
         <i class="fa fa-copy w3-xxlarge"></i>
         <p>My Templates</p>
-    </a>
+    </a>-->
 </nav>
 
 <!-- Main part -->
@@ -47,11 +48,7 @@
         <h1 class="w3-jumbo">Workout on ${myWorkout}</h1>
     </header>
 
-    <!---------------------- Section MyExercises ----------------------------->
-
     <div class="w3-content w3-padding" id="Exercises">
-
-
         <ul class="w3-ul w3-content">
             <li class="w3-padding-16 w3-container w3-row">
                 <div class="w3-col w3-padding-small" style="width:50%">
@@ -62,19 +59,15 @@
                 </div>
             </li>
         </ul>
-
         <br>
         <br>
         <br>
         <label class="w3-large"><b>Exercise List:</b> </label>
-
         <ul class="w3-ul w3-card-4 w3-content" id="exerciseList">
             <g:each var="exercise" in="${myWorkout.exerciseList}">
-
                 <li class="w3-padding-16 w3-container w3-row">
                     <div class="w3-col w3-padding-small" style="width:15%"><p>
                         <img src="${resource(dir:'images', file:"${exercise.name}.jpg")}" class="w3-left w3-round w3-grayscale w3-margin-right" style="width:70px">
-
                     </div>
                     <div class="w3-col w3-padding-small" style="width:35%">
                         <p>
@@ -93,6 +86,7 @@
                 </li>
             </g:each>
         </ul>
+    </div>
 </div>
 
 </body>

@@ -55,10 +55,11 @@
         <!--area-chart, line-chart-->
         <p>My Statistics</p>
     </a>
+    <!--
     <a href="displayTemplates" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
         <i class="fa fa-copy w3-xxlarge"></i>
         <p>My Templates</p>
-    </a>
+    </a>-->
 </nav>
 
 <!-- Main part -->
@@ -71,8 +72,6 @@
     <!---------------------- Section MyStatistics ----------------------------->
 
     <div class="w3-content" id="myStatistics">
-
-
         <div class="w3-cell-row" style="width:100%">
             <div class="w3-container w3-cell">
                 <p id="container1"> </p>
@@ -87,14 +86,12 @@
             </div>
         </div>
     </div>
-
-    ${test}
-
 </div>
 
 <script>
     Highcharts.setOptions({
-        colors: ['#ff3300','#ff4dd2','#3385ff','#00e64d','#ffff4d','#bf80ff']
+        colors: ['#254b70','#34689c','#4985c2','#75a3d1','#a1c0e0','#cddeee']
+        //colors: ['#ff3300','#ff4dd2','#3385ff','#00e64d','#ffff4d','#bf80ff']
     });
 
     Highcharts.chart('container1', {
@@ -137,7 +134,6 @@
 
     Highcharts.chart('container2', {
         chart: {
-
         },
         title: {
             text: 'Übungstyp<br>Verteilung',
@@ -171,16 +167,17 @@
             name: 'Type Share',
             innerSize: '50%',
             data: [
-                ['Strength',   ${nrOfStrength}],
-                ['Explosiveness', ${nrOfExplosiveness}],
-                ['Endurance', ${nrOfEndurance}],
+                ['Bizeps',   3],
+                ['Squat', 6],
+                ['Snatch', 2],
+                ['Benchpress', 5],
+                ['Clean', 4],
             ]
         }]
     });
 
     Highcharts.chart('container3', {
         chart: {
-
         },
         title: {
             text: 'Übungs-<br>verteilung',
@@ -215,7 +212,7 @@
             innerSize: '50%',
             data: [
                 ['Strength',   ${nrOfStrength}],
-                ['Explosiveness', ${nrOfExplosiveness}],
+                ['Explosiveness', ${nrOfExplosive}],
                 ['Endurance', ${nrOfEndurance}],
             ]
         }]
