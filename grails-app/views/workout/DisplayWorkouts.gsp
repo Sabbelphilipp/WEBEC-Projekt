@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title> Meine Workouts </title>
+    <title> My Workouts </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
@@ -70,7 +70,7 @@
             <g:each var="name" in="${allWorkouts}">
                 <li class="w3-padding-14 w3-hover-dark-grey">
                     <a href="displayExercises?date=${name.date}&duration=${name.duration}">
-                        <img src="${resource(dir:'images', file:"${name.type}.jpg")}" class="w3-left w3-round w3-grayscale w3-margin-right w3-padding-32" style="width:70px">
+                        <img src="${resource(dir:'images', file:"${name.type}.jpg")}" class="w3-left w3-round w3-grscale w3-margin-right w3-padding-32" style="width:70px">
                         <div class="w3-container w3-cell" style="width:200px">
                             <p><b>${name}</b></p>
                             <p>Type: ${name.type}</p>
@@ -80,7 +80,7 @@
                             <p> Exercise List:
                             <g:each var="exercise" in="${name.exerciseList}">
                                 <div class="w3-col w3-padding-small" style="width:80px">
-                                    <img src="${resource(dir:'images', file:"${exercise.name}.jpg")}" class="w3-left w3-round w3-grayscale" style="height:50px">
+                                    <img src="${resource(dir:'images', file:"${exercise.name}.jpg")}" class="w3-center w3-round w3-grayscale" style="height:50px; width:65px">
                                 </div>
                             </g:each>
                             </p>
