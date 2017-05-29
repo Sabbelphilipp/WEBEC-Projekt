@@ -4,6 +4,10 @@ package mvc
 class WorkoutController{
     static scaffold = Workout
 
+    def index(){
+        redirect(controller: 'workout', action: 'displayWorkouts')
+    }
+
     //Controls the Data for creating a new Input
     def addNewWorkout(){
         def allExercises = Exercise.list()
